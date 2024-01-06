@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Exam</title>
+</head>
+
+<body>
+    <h1>Create Exam</h1>
+
+    <form id="examForm">
+        <label for="subject">Select Subject:</label>
+        <select id="subject" name="subject">
+            <option value="math">Math</option>
+            <option value="science">Science</option>
+            <option value="history">History</option>
+            <!-- Add more subjects as needed -->
+        </select>
+
+        <br /><br />
+
+        <label for="duration">Duration (in minutes):</label>
+        <input type="number" id="duration" name="duration" min="1" required />
+
+        <br/><br/>
+
+        <label for="numQuestions">Number of Questions:</label>
+        <input type="number" id="numQuestions" name="numQuestions" min="1" required />
+
+        <br /><br />
+
+        <label for="negativeMarking">Negative Marking (if any, specify as -0.5, -1, etc.):</label>
+        <input type="text" id="negativeMarking" name="negativeMarking" />
+
+        <br /><br />
+
+        <input type="submit" value="Create Exam" />
+    </form>
+
+    <script>
+        document
+            .getElementById("examForm")
+            .addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevents the default form submission
+
+                // Get form values
+                const subject = document.getElementById("subject").value;
+                const duration = document.getElementById("duration").value;
+                const numQuestions = document.getElementById("numQuestions").value;
+                const negativeMarking =
+                    document.getElementById("negativeMarking").value;
+
+                // You can perform further actions here like sending data to a server or storing it locally
+                // For now, let's display the selected values
+                alert(
+                    `Exam Created!\nSubject: ${subject}\nDuration: ${duration} minutes\nNumber of Questions: ${numQuestions}\nNegative Marking: ${negativeMarking}`
+                );
+            });
+    </script>
+</body>
+
+</html>
